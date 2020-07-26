@@ -1,19 +1,23 @@
-import {
-  ADD_TODO,
-  TOGGLE_TODO,
-  EDIT_TODO,
-} from '../actions/todoAction';
+import {ADD_TODO, TOGGLE_TODO, EDIT_TODO} from '../actions/todoAction';
 
 const initialState = {
   visibilityFilter: 'SHOW_ALL',
   todos: [
     {
-      text: 'Consider using Redux',
+      text: 'Google How to build todo app',
       completed: true,
     },
     {
       text: 'Keep all state in a single tree',
       completed: false,
+    },
+    {
+      text: 'Read results from Google',
+      completed: false,
+    },
+    {
+      text: 'Google How to build todo app using React Native',
+      completed: true,
     },
   ],
 };
@@ -33,7 +37,6 @@ export const todo = (state = initialState, action) => {
       };
 
     case EDIT_TODO:
-      console.log('édit reducer', action.item, action.index);
       return Object.assign({}, state, {
         todos: state.todos.map((todo, index) => {
           if (index === action.index) {
